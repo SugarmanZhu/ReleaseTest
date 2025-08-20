@@ -8,8 +8,7 @@ module.exports = {
       "@semantic-release/exec",
       {
         // Create a file named "release-<version>" containing the version
-        prepareCmd:
-          'node -e "require(\'fs\').writeFileSync(`release-${process.argv[1]}`, process.argv[1])" ${nextRelease.version}',
+        prepareCmd: 'VERSION=${nextRelease.version}; printf "%s" "$VERSION" > "release-$VERSION"',
       },
     ],
     [
